@@ -5,8 +5,8 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import { PiAddressBookTabsLight } from "react-icons/pi";
 import { useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
-import { fetchContacts } from "../../redux/contactsOps";
-import { selectError, selectLoading } from "../../redux/selectors";
+import { fetchContacts } from "../../redux/contacts/operations";
+import { selectError, selectLoading } from "../../redux/contacts/selectors";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();

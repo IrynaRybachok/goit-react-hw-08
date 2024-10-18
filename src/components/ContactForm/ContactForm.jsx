@@ -3,7 +3,7 @@ import { Field, Formik, Form, ErrorMessage } from "formik";
 import { useId, useState } from "react";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operations.js";
 import { IoMdCheckmark } from "react-icons/io";
 
 const ContactForm = () => {

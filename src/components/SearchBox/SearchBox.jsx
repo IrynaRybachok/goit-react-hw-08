@@ -1,8 +1,8 @@
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import s from "./SearchBox.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeFilter } from "../../redux/filtersSlice";
-import { selectNameFilter } from "../../redux/selectors";
+import { changeFilter } from "../../redux/filters/slice";
+import { selectNameFilter } from "../../redux/filters/silectors";
 
 const SearchBox = () => {
   const dispatch = useDispatch();
