@@ -1,10 +1,12 @@
 import { Field, Form, Formik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import s from "./RegistrationForm.module.css";
 import { useId } from "react";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
+import { isLoggedInSelector } from "../../redux/auth/selectors";
+import { Navigate } from "react-router-dom";
 
 const RegistrationForm = () => {
   const initialValues = {
@@ -12,11 +14,16 @@ const RegistrationForm = () => {
     email: "",
     password: "",
   };
-  const usernameFildId = useId();
-  const emailFildId = useId();
-  const passwordFildId = useId();
+  const usernameFieldId = useId();
+  const emailFieldId = useId();
+  const passwordFieldId = useId();
 
   const dispatch = useDispatch();
+  const isLogin = useSelector(isLoggedInSelector);
+
+  if (isLogin) {
+    return <Navigate to="/" />;
+  }
 
   const FeedbackSchema = Yup.object().shape({
     username: Yup.string()
@@ -49,33 +56,32 @@ const RegistrationForm = () => {
     dispatch(register(values));
     actions.resetForm();
   };
+
   return (
-    <>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={FeedbackSchema}
-      >
-        <Form className={s.form}>
-          <div>
-            <label htmlFor={usernameFildId}>Username</label>
-            <Field type="text" name="username" id={usernameFildId} />
-            <ErrorMessage name="username" component="span" />
-          </div>
-          <div>
-            <label htmlFor={emailFildId}>Email</label>
-            <Field type="email" name="email" id={emailFildId} />
-            <ErrorMessage name="email" component="span" />
-          </div>
-          <div>
-            <label htmlFor={passwordFildId}>Password</label>
-            <Field type="text" name="password" id={passwordFildId} />
-            <ErrorMessage name="password" component="span" />
-          </div>
-          <button type="submit">Register</button>
-        </Form>
-      </Formik>
-    </>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={FeedbackSchema}
+    >
+      <Form className={s.form}>
+        <div>
+          <label htmlFor={usernameFieldId}>Username</label>
+          <Field type="text" name="username" id={usernameFieldId} />
+          <ErrorMessage name="username" component="span" />
+        </div>
+        <div>
+          <label htmlFor={emailFieldId}>Email</label>
+          <Field type="email" name="email" id={emailFieldId} />
+          <ErrorMessage name="email" component="span" />
+        </div>
+        <div>
+          <label htmlFor={passwordFieldId}>Password</label>
+          <Field type="text" name="password" id={passwordFieldId} />
+          <ErrorMessage name="password" component="span" />
+        </div>
+        <button type="submit">Register</button>
+      </Form>
+    </Formik>
   );
 };
 

@@ -2,11 +2,15 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const goitApi = axios.create({
-  baseURL: "https://task-manager-api.goit.global/",
+  baseURL: "https://connections-api.goit.global/",
 });
 
 const setAuthHeader = (token) => {
   goitApi.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+const clearAuthHeader = () => {
+  goitApi.defaults.headers.common.Authorization = "";
 };
 
 export const register = createAsyncThunk(
@@ -38,6 +42,7 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk("logout", async (_, thunkApi) => {
   try {
     await goitApi.post("/users/logout");
+    clearAuthHeader();
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
