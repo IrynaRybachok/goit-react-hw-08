@@ -10,11 +10,11 @@ import { Navigate } from "react-router-dom";
 
 const RegistrationForm = () => {
   const initialValues = {
-    username: "",
+    name: "",
     email: "",
     password: "",
   };
-  const usernameFieldId = useId();
+  const nameFieldId = useId();
   const emailFieldId = useId();
   const passwordFieldId = useId();
 
@@ -26,7 +26,7 @@ const RegistrationForm = () => {
   }
 
   const FeedbackSchema = Yup.object().shape({
-    username: Yup.string()
+    name: Yup.string()
       .min(2, "Too Short!")
       .max(40, "Too Long!")
       .required("Required"),
@@ -65,9 +65,9 @@ const RegistrationForm = () => {
     >
       <Form className={s.form}>
         <div>
-          <label htmlFor={usernameFieldId}>Username</label>
-          <Field type="text" name="username" id={usernameFieldId} />
-          <ErrorMessage name="username" component="span" />
+          <label htmlFor={nameFieldId}>Username</label>
+          <Field type="text" name="name" id={nameFieldId} />
+          <ErrorMessage name="name" component="span" />
         </div>
         <div>
           <label htmlFor={emailFieldId}>Email</label>
