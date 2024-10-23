@@ -5,6 +5,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { isLoggedInSelector } from "../../redux/auth/selectors";
 import { Navigate } from "react-router-dom";
+import s from "./LoginForm.module.css";
 
 const LoginForm = () => {
   const initialValues = {
@@ -26,10 +27,7 @@ const LoginForm = () => {
   const FeedbackSchema = Yup.object().shape({
     email: Yup.string().email("Must be a valid email!").required("Required"),
     password: Yup.string()
-      .min(
-        8,
-        "password must contain 8 or more characters with at least one of each: uppercase, lowercase, number and special "
-      )
+      .min(8, "password must be at least 8 characters long")
       .matches(
         RegExp("(.*[a-z].*)"),
         "password must contain at least 1 lower case letter"
@@ -56,18 +54,34 @@ const LoginForm = () => {
       onSubmit={handleSubmit}
       validationSchema={FeedbackSchema}
     >
-      <Form>
-        <div>
-          <label htmlFor={emailFieldId}>Email</label>
-          <Field type="email" name="email" id={emailFieldId} />
-          <ErrorMessage name="email" component="span" />
+      <Form className={s.form}>
+        <div className={s.wrapInput}>
+          <Field
+            className={s.input}
+            type="email"
+            name="email"
+            id={emailFieldId}
+            placeholder="Email"
+          />
+          <ErrorMessage className={s.formError} name="email" component="span" />
         </div>
-        <div>
-          <label htmlFor={passwordFieldId}>Password</label>
-          <Field type="text" name="password" id={passwordFieldId} />
-          <ErrorMessage name="password" component="span" />
+        <div className={s.wrapInput}>
+          <Field
+            className={s.input}
+            type="text"
+            name="password"
+            id={passwordFieldId}
+            placeholder="Password"
+          />
+          <ErrorMessage
+            className={s.formError}
+            name="password"
+            component="span"
+          />
         </div>
-        <button type="submit">Login</button>
+        <button className={s.btnLogin} type="submit">
+          Login
+        </button>
       </Form>
     </Formik>
   );

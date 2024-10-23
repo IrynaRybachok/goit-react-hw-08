@@ -1,0 +1,51 @@
+.UserMenu {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  opacity: 0.9;
+  background: linear-gradient(
+    89deg,
+    #fff 49.86%,
+    #763af5 76.63%,
+    #a604f2 104.63%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Inter;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -2.455px;
+}
+
+.btnLogout {
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 0;
+  color: #a604f2;
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  outline: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnLogout:hover {
+  color: #763af5;
+}
+
+.btnLogout:active {
+  color: #fff;
+}

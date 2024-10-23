@@ -1,0 +1,86 @@
+.wrapLogin {
+  display: inline-flex;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: stretch;
+  overflow: hidden;
+  min-height: 465px;
+  box-shadow: 0 4px 20px rgba(247, 240, 240, 0.5);
+}
+
+.boxLogin {
+  background-color: rgba(255, 255, 255, 0.04);
+  width: 700px;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxWelcome {
+  background-color: #fff;
+  width: 500px;
+  height: auto;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: Inter;
+  color: #fff;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.6px;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.16px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 40px;
+}
+
+.linkRegister {
+  color: #a604f2;
+  text-decoration: none;
+}
+
+/* .wrapWelcome {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 20px;
+  border: 2px solid rgba(10, 13, 23, 0.05);
+  width: 700px;
+  padding: 50px 80px;
+} */
+
+.titleWelcome {
+  font-family: Inter;
+  color: rgba(18, 17, 17, 0.656);
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.6px;
+  margin-bottom: 30px;
+}
+
+.discr {
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.16px;
+  color: rgba(18, 17, 17, 0.656);
+}
