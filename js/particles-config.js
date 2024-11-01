@@ -1,3 +1,5 @@
+/* global particlesJS */
+/* eslint no-undef: "off" */
 particlesJS("particles-js", {
   particles: {
     number: {
